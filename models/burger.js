@@ -1,10 +1,5 @@
 
-* Inside `burger.js`, import `orm.js` into `burger.js`
-
-* Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-
-* Export at the end of the `burger.js` file.
-
+//require orm config
 const orm = require('../config/orm.js');
 
 const burger = {
@@ -18,10 +13,10 @@ const burger = {
   update(objColVals, condition, cb) {
     orm.update('burgers', objColVals, condition, (res) => cb(res));
   },
-  delete(condition, cb) {
-    orm.delete('burgers', condition, (res) => cb(res));
-  },
+//   delete(condition, cb) {
+//     orm.delete('burgers', condition, (res) => cb(res));
+//   },
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (burgers_controller.js).
 module.exports = burger;

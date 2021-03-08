@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
   
     console.log('condition', condition);
   
-    cat.update(
+    burger.update(
       {
         devoured: req.body.devoured,
       },
@@ -47,17 +47,17 @@ router.get('/', (req, res) => {
     );
   });
   
-  router.delete('/api/cats/:id', (req, res) => {
-    const condition = `id = ${req.params.id}`;
+//   router.delete('/api/cats/:id', (req, res) => {
+//     const condition = `id = ${req.params.id}`;
   
-    cat.delete(condition, (result) => {
-      if (result.affectedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      }
-      res.status(200).end();
-    });
-  });
+//     cat.delete(condition, (result) => {
+//       if (result.affectedRows === 0) {
+//         // If no rows were changed, then the ID must not exist, so 404
+//         return res.status(404).end();
+//       }
+//       res.status(200).end();
+//     });
+//   });
   
   // Export routes for server.js to use.
   module.exports = router;
