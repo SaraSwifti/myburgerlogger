@@ -13,7 +13,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     burger.all((data) => {
       const hbsObject = {
-        burger: data,
+          //this is what is being given to the handle bars
+        burgers: data,
       };
       console.log(hbsObject);
       res.render('index', hbsObject);
@@ -21,8 +22,8 @@ router.get('/', (req, res) => {
   });
   
   router.post('/api/burgers', (req, res) => {
-    burger.create(['name', 'devoured'], [req.body.burger_name, req.body.devoured], (result) => {
-      // Send back the ID of the new quote
+    burger.create(['burger_name)', 'devoured'], [req.body.burger_name, req.body.devoured], (result) => {
+      // Send back the ID of the new burger
       res.json({ id: result.insertId });
     });
   });
@@ -47,7 +48,7 @@ router.get('/', (req, res) => {
     );
   });
   
-//   router.delete('/api/cats/:id', (req, res) => {
+//   router.delete('/api/burgers/:id', (req, res) => {
 //     const condition = `id = ${req.params.id}`;
   
 //     cat.delete(condition, (result) => {
