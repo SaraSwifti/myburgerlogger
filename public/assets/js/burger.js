@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // UPDATE
-    const devourBurgerBtn = document.querySelectorAll('.change-devoured');
+    const devourBurgerBtn = document.querySelectorAll('.devour-burger');
   
     // Set up the event listener for the create button
     if (devourBurgerBtn) {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // CREATE
-    const createBurg = document.getElementById('create-form');
+    const createBurg = document.getElementById('burger-create');
   
     if (createBurg) {
       createBurg.addEventListener('submit', (e) => {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
         // Grabs the value of the textarea that goes by the name, "quote"
         const newBurg = {
-          name: document.getElementById('add_burg').value.trim(),
+          burger_name: document.getElementById('add_burg').value.trim(),
         
         };
   
