@@ -5,20 +5,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // UPDATE
-    const changeBurgerBtn = document.querySelectorAll('.change-devoured');
+    const devourBurgerBtn = document.querySelectorAll('.change-devoured');
   
     // Set up the event listener for the create button
-    if (changeBurgerBtn) {
-      changeBurgerBtn.forEach((button) => {
+    if (devourBurgerBtn) {
+      devourBurgerBtn.forEach((button) => {
         button.addEventListener('click', (e) => {
           // Grabs the id of the element that goes by the name, "id"
-          const id = e.target.getAttribute('data-id');
-          const newBurg = e.target.getAttribute('data-newBurgs');
-  
-          const newBurgState = {
-            devoured: newBurgs,
-          };
-  
+          const id = parseInt(e.target.getAttribute('data-id'));
+         
           fetch(`/api/burgers/${id}`, {
             method: 'PUT',
             headers: {
@@ -27,12 +22,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
   
             // make sure to serialize the JSON body
-            body: JSON.stringify(newBurgState),
           }).then((response) => {
             // Check that the response is all good
             // Reload the page so the user can see the new quote
             if (response.ok) {
-              console.log(`changed burger to: ${newBurg}`);
+              console.log(`changed burger to: devoured`);
               location.reload('/');
             } else {
               alert('something went wrong!');
@@ -43,16 +37,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // CREATE
-    const createBurgBtn = document.getElementById('create-form');
+    const createBurg = document.getElementById('create-form');
   
-    if (createBurgBtn) {
-      createBurgBtn.addEventListener('submit', (e) => {
+    if (createBurg) {
+      createBurg.addEventListener('submit', (e) => {
         e.preventDefault();
   
         // Grabs the value of the textarea that goes by the name, "quote"
         const newBurg = {
-          name: document.getElementById('ca').value.trim(),
-          devoured: document.getElementById('devoured').checked,
+          name: document.getElementById('add_burg').value.trim(),
+        
         };
   
         // Send POST request to create a new quote
@@ -67,7 +61,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           body: JSON.stringify(newBurg),
         }).then(() => {
           // Empty the form
-          document.getElementById('ca').value = '';
+          document.getElementById('add_burg').value = '';
   
           // Reload the page so the user can see the new quote
           console.log('Created a new Burger!');
@@ -75,26 +69,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
       });
     }
+});
+
+  //   // DELETE
+  //   const deleteBurgBtns = document.querySelectorAll('.delete-burger');
   
-    // DELETE
-    const deleteBurgBtns = document.querySelectorAll('.delete-burger');
+  //   // Set up the event listeners for each delete button
+  //   deleteBurgBtns.forEach((button) => {
+  //     button.addEventListener('click', (e) => {
+  //       const id = e.target.getAttribute('data-id');
   
-    // Set up the event listeners for each delete button
-    deleteBurgBtns.forEach((button) => {
-      button.addEventListener('click', (e) => {
-        const id = e.target.getAttribute('data-id');
+  //       // Send the delete request
+  //       fetch(`/api/burgers/${id}`, {
+  //         method: 'DELETE',
+  //       }).then((res) => {
+  //         console.log(res);
+  //         console.log(`Deleted Burger: ${id}`);
   
-        // Send the delete request
-        fetch(`/api/burgers/${id}`, {
-          method: 'DELETE',
-        }).then((res) => {
-          console.log(res);
-          console.log(`Deleted Burger: ${id}`);
-  
-          // Reload the page
-          location.reload();
-        });
-      });
-    });
-  });
+  //         // Reload the page
+  //         location.reload();
+  //       });
+  //     });
+  //   });
+  // });
   
