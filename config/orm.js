@@ -1,6 +1,6 @@
 // Import MySQL connection.
 
-const connection = require('./connection');
+const connection = require('/connection.js');
 
 const orm = {
     all(table, cb) {
@@ -31,14 +31,7 @@ const orm = {
         });
         console.log(query.sql);
     },
-    delete(table, condition, cb) {
-        let queryString = `DELETE FROM ${table} WHERE ${condition}`;
-        const query = connection.query(queryString, (err, result) => {
-            if (err) throw err;
-            cb(result);
-        });
-        console.log(query.sql);
-    }
+    
 };
 
 module.exports = orm;

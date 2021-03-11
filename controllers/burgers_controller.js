@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const burger = require('../models/burger');
+const burger = require('../models/burger.js');
 
 router.get('/', (request, response) => {
     burger.all((data) => {
@@ -19,7 +19,7 @@ router.get('/', (request, response) => {
 });
 
 router.post('/api/burgers', (req, response) => {
-    burger.create('name', req.body.name, (result) => {
+    burger.create('name', req.body.burger_name, (result) => {
         response.json({ id: result.insertId });
     });
 });
@@ -27,8 +27,8 @@ router.post('/api/burgers', (req, response) => {
 router.put('/api/burgers/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
     console.log('condition', condition);
-    console.log(req.body.eaten);
-    burger.update(req.body.eaten, condition,
+    console.log(req.body.devoured);
+    burger.update(req.body.devoured, condition,
         (result) => {
             if (result.changedRows ===0) {
                 return res.status(404).end();
@@ -38,14 +38,7 @@ router.put('/api/burgers/:id', (req, res) => {
     );
 });
 
-router.delete('/api/burgers/:id', (req, res) => {
-    const condition = `id = ${req.params.id}`;
-    burger.delete(condition, (result) => {
-        if (result.affectedRows === 0) {
-            return res.status(404).end();
-        }
-        res.status(200).end();
-    })
-})
+
+
 
 module.exports = router;

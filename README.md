@@ -1,5 +1,8 @@
 # myburgerlogger
-# Node Express Handlebars
+[html image] (myburgerlogger/public/assets/img/burgerclip.png)
+[recording link] 
+
+
 
 ### Overview
 
