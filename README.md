@@ -1,6 +1,6 @@
 # myburgerlogger
-[html image] (myburgerlogger/public/assets/img/burgerclip.png)
-[recording link] 
+*[html image] (myburgerlogger/public/assets/img/burgerclip.png).
+*[recording link] (https://drive.google.com/file/d/1yHcOptGpu3mjafp2gCOG9csmDyyCSRBJ/view).
 
 
 
