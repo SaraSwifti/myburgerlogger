@@ -1,5 +1,5 @@
 <header>
-  <img src="./assets/img/burger.png" width="400px" id="burgpic">
+  <img src="/public/assets/img/burger.png" width="400px" id="burgpic">
   <h1>DA Burgers!</h1>
 </header>
 
@@ -25,8 +25,8 @@
         {{#each burger}}
         {{#unless devoured}}
         <li>
-          {{name}}
-          <button class="devour-burger" data-id="{{id}}" data-devour = false >Devour It!</button>
+          {{this.burger}}
+          <button class="devour-burger" data-id="{{this.id}}" data-devour = false >Devour It!</button>
         </li>
         {{/unless}}
         {{/each}}
@@ -39,7 +39,7 @@
         {{#each burger}}
         {{#if devoured}}
         <li>
-          {{name}}
+          {{this.burger}}
         </li>
         {{/if}}
         {{/each}}

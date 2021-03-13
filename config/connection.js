@@ -2,7 +2,7 @@
 
  //  * Export the connection.//// Set up MySQL connection.
 const mysql = require('mysql');
-
+//connection parameters
 const connection = mysql.createConnection({
   host: 'localhost',
   port: 3306,
