@@ -1,43 +1,30 @@
-/* body {
-  background-image: url(../img/whiteburgerbackground.jpg);
-  background-repeat: repeat;
-  background-position: center;
-  background-size: cover;
-} */
+.navbar {
+  background-color: rgb(6, 24, 59);
+  text-size-adjust: 100px;
+}
 
+.container {
+  position: center;
+  background-color: bisque;
+  padding: 50px;
+}
+#bname {
+  text-align: left;
+ 
+  font-weight: bold;
+
+
+}
 li {
     padding: 5px;
     margin: 5px;
-    font-family: 'Zilla Slab', cursive;
-    /* background-color: aliceblue; */
+    
+    
   }
   
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: rgb(106, 0, 255);
-  }
-  
-  .form-group {
-    margin-bottom: 5px;
-    font-family: 'Zilla Slab', serif;
-  }
 
-  .submit {
-    font-family: 'Zilla Slab', serif;
-  }
-  
+ 
   h1 {
     text-align: center;
-    font-family: 'Bungee Shade', cursive;
-  }
-
-  h2 {
-    font-family: 'Zilla Slab Highlight', cursive;
-    /* color: white; */
-    /* background-color: teal; */
+   
   }

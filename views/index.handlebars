@@ -1,39 +1,53 @@
-<h1>Your Burger logger! After all, who's keeping track?!?</h1>
-<h2> Would you like to eat your burger or toss it? </h2>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/img/burger.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    Your Burger logger! After all, who's keeping track?!?
+  </a>
+</nav>
 
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  {{> burgers/burger-block devoured=false}}
-  {{/if}}
-  {{/each}}
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
 
-<h2> These Burgers have already been devoured: Are you full yet? </h2>
+      <h3> Would you like to eat your burger or toss it? </h3>
 
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  {{> burgers/burger-block devoured=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-3">
+      <h3> These Burgers have already been devoured: Are you full yet? </h3>
 
-
-<h2>Make your own: Maybe someone else will want to devour it.  </h2>
-<form id="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger name:</label>
-    <input type="text" id="ca" name="name">
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
+  <div class="row">
+    <h2>Make your own: Maybe someone else will want to devour it. </h2>
+    <form id="create-form">
 
-  <div class="form-group">
-    <label for="devoured">Ready to submit your creation to the menu?</label>
-    <input type="radio" name="devoured" value="1" id="devoured" checked> Yum!
-    <input type="radio" name="devoured" value="0" id="yuck"> On second thought, I'd rather delete it.
-      {{!-- <button type="submit">Add burger</button> --}}
+      <div class="form-group">
+        <label for="ca">Burger name:</label>
+        <input type="text" id="ca" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="devoured">Ready to submit your creation to the menu?</label>
+        <input type="radio" name="devoured" value="1" id="devoured" checked> Yum!
+        <input type="radio" name="devoured" value="0" id="yuck"> On second thought, I'd rather delete it.
+        {{!-- <button type="submit">Add burger</button> --}}
+      </div>
+
+      <button type="submit">Add Burger</button>
+    </form>
   </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+</div>

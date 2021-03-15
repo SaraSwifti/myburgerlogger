@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
       button.addEventListener('click', (e) => {
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute('data-id');
-        const newNom = e.target.getAttribute('data-newnom');
+        const newburg = e.target.getAttribute('data-newburg');
 
         const newBurgerState = {
-          devoured: newNom,
+          devoured: newburg,
         };
 
         fetch(`/api/burgers/${id}`, {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
           // Check that the response is all good
           // Reload the page so the user can see the new quote
           if (response.ok) {
-            console.log(`Yum: ${newNom} sounds great!`);
+            console.log(`Yum: ${newburg} sounds great!`);
             location.reload('/');
           } else {
             alert('something went wrong!');
