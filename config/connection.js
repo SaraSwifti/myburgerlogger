@@ -3,7 +3,12 @@
  //  * Export the connection.//// Set up MySQL connection.
 const mysql = require('mysql');
 //connection parameters
-const connection = mysql.createConnection({
+
+var connection;
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+  } else {
+ connection = mysql.createConnection({
   host: 'localhost',
   port: 3306,
   user: 'root',
@@ -11,6 +16,7 @@ const connection = mysql.createConnection({
   password: process.env.mysqlpw,
   database: 'burgers_db',
 });
+}
 
 // Make connection.
 connection.connect((err) => {
